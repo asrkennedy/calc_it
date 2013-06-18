@@ -1,7 +1,7 @@
 def menu
   puts `clear`
   puts "***CalcIt***"
-  print "(b)asic, (a)dvanced, or (q)uit: "
+  print "(b)asic, (a)dvanced, (m)ortgage, bm(i), mp(g) or (q)uit: "
   gets.chomp.downcase
 end
 
@@ -24,7 +24,7 @@ def basic_calc
     puts "#{a / b}"
   end
 
-  gets
+gets
 end
 
 def advanced_calc
@@ -44,6 +44,27 @@ def advanced_calc
   gets
 end
 
+def bmi_calc
+  puts "Do you want to use imperial or metric?"
+  choice = gets.chomp.downcase.to_s
+  puts "What is your weight?"
+  weight = gets.to_f
+  puts "What is your height in inches?"
+  height = gets.to_f
+
+  case choice
+    when 'imperial'
+      puts "Your BMI is: #{weight/(height*height)}"
+    when 'metric'
+      puts "Your BMI is: #{weight/(height*height)}"
+    else
+      puts "Needs to be in imperial or metric."
+    end
+
+    gets
+end
+
+
 response = menu
 
 while response != 'q'
@@ -52,6 +73,8 @@ while response != 'q'
     basic_calc
   when 'a'
     advanced_calc
+  when 'i'
+    bmi_calc
   end
 
   response = menu
