@@ -47,7 +47,7 @@ end
 def mortgage
   puts "To calculate your monthly mortgage payments, enter your annual interest rate:"
   annual_interest = gets.to_f
-  i = annual_interest/12
+  i = (annual_interest/12)/100
   puts "How many years are you paying off?"
   years = gets.to_f
   n = (years*12)
