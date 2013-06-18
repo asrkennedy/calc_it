@@ -1,7 +1,7 @@
 def menu
   puts `clear`
   puts "***CalcIt***"
-  print "(b)asic, (a)dvanced, or (q)uit: "
+  print "(b)asic, (a)dvanced, (m)ortgage, bm(i), mp(g) or (q)uit: "
   gets.chomp.downcase
 end
 
@@ -44,6 +44,23 @@ def advanced_calc
   gets
 end
 
+def mortgage
+  puts "To calculate your monthly mortgage payments, enter your annual interest rate:"
+  annual_interest = gets.to_f
+  i = annual_interest/12
+  puts "How many years are you paying off?"
+  years = gets.to_f
+  n = (years*12)
+  puts "Now enter your principal of the loan:"
+  p = gets.to_f
+      monthly_i = (i).to_f
+      top = i*(1.0+i)**n
+      bottom = ((1.0+i)**n) - 1
+  puts "Your monthly interest rate is #{p*(top.to_f/bottom.to_f)}."
+  gets
+end
+
+
 response = menu
 
 while response != 'q'
@@ -52,6 +69,8 @@ while response != 'q'
     basic_calc
   when 'a'
     advanced_calc
+  when 'm'
+    mortgage
   end
 
   response = menu
