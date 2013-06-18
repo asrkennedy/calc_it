@@ -1,7 +1,7 @@
 def menu
   puts `clear`
   puts "***CalcIt***"
-  print "(b)asic, (a)dvanced, or (q)uit: "
+  print "(b)asic, (a)dvanced, (m)ortgage, bm(i), mp(g) or (q)uit: "
   gets.chomp.downcase
 end
 
@@ -44,6 +44,23 @@ def advanced_calc
   gets
 end
 
+#START adding miles method (MPG)
+
+def miles
+  print "Do you want to know your MPG ratio?"
+  print "How far do you plan to drive?"
+  distance = gets.to_f
+  print "How much does gas cost per gallon?"
+  pg = gets.to_f
+  print "Last question... how fast are you planning on driving? Be honest!"
+  speed = gets.to_f
+  puts =
+
+
+
+#END adding miles method (MPG)
+
+
 response = menu
 
 while response != 'q'
@@ -52,6 +69,12 @@ while response != 'q'
     basic_calc
   when 'a'
     advanced_calc
+
+# START - adding the 'when MPG'
+  when 'g'
+    miles
+# END - end of 'when MPG'
+
   end
 
   response = menu
